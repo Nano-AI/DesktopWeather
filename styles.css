@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.background {
+    background: url("./src/img/Beach.jpg") no-repeat center center fixed; 
+    background-size: cover
+}
+
+#quote {
+    width: 20rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-weight: lighter;
+    font-size: 2.5rem;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
