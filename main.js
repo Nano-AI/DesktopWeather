@@ -16,9 +16,13 @@ async function getWeather(){
 
 function test() {
     document.getElementById('weather').innerHTML = "test";
+    document.getElementById('quote').innerHTML = "Lorem ipsum idk";
 }
 
-test();
+function changeBackground() {
+    const { dialog } = require('electron');
+    console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
+}
 
 // getWeather()
 
@@ -46,3 +50,5 @@ const userAction = async() => {
 }
 
 userAction();
+
+test();
