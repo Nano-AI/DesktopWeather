@@ -12,6 +12,7 @@ body {
 
 #quote {
     width: 20rem;
+    margin-left: 0.5em;
 }
 
 h1 {
@@ -19,6 +20,7 @@ h1 {
     padding-bottom: 0px;
     padding-top: 0px;
     margin-bottom: 0px;
+    margin-left: 0.5em;
 }
 
 h2 {
@@ -28,4 +30,19 @@ h2 {
     padding-top: 0px;
     margin-bottom: 0px;
     margin-top: 0px;
+    margin-left: 0.5em;
+}
+
+#weather {
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-right: 0.5em;
+}
+
+.right {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
