@@ -1,35 +1,20 @@
-const puppeteer = require('puppeteer');
+const spawn = require("child_process").spawn;
+const pythonProcess = spawn('python', ['./src/python/GetWeather.py']);
 
-async function getWeather(){
-    const browser = await puppeteer.launch({ headless: true });
-    const page = await browser.newPage();
+pythonProcess.stdout.on('data', (data) => console.log(data));
 
-    await page.goto('https://www.onepeloton.com/', { waitUntil: 'domcontentloaded' });
-    await page.exposeFunction('urlExists', urlExists);
-
-    const img = await page.evaluate(async () => {
-        const ogImg = document.querySelector('meta[property="og:image"]');
-        if (ogImg != null && ogImg.content.length > 0) {
-            const isExists = await urlExists(ogImg.content);
-            return isExists;
-        }
-    });
-    console.log(img);
-
-    await browser.close()
+function setup_welcome() {
+    var time = new Date().getHours();
+    if (time < 12) {
+        document.getElementById('good-x').innerHTML = "Good morning!";
+    } else if (time < 18) {
+        document.getElementById('good-x').innerHTML = "Good afternoon!";
+    } else {
+        document.getElementById('good-x').innerHTML = "Good evening!";
+    }
 }
 
-getWeather();
-
-var time = new Date().getHours();
-
-if (time < 12) {
-    document.getElementById('good-x').innerHTML = "Good morning!";
-} else if (time < 18) {
-    document.getElementById('good-x').innerHTML = "Good afternoon!";
-} else {
-    document.getElementById('good-x').innerHTML = "Good evening!";
-}
+setup_welcome();
 
 
 window.setInterval(() => {
@@ -45,5 +30,3 @@ const userAction = async() => {
 }
 
 userAction();
-
-// test();
