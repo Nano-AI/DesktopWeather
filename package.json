@@ -11,10 +11,11 @@
   "author": "Nano-AI",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^10.1.0",
+    "electron": "^10.1.1",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
+    "phantom": "^6.3.0",
     "puppeteer": "^5.2.1"
   }
 }

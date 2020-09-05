@@ -1,30 +1,25 @@
 const puppeteer = require('puppeteer');
 
 async function getWeather(){
-    const browser = await puppeteer.launch({ headless: true}); // for test disable the headlels mode,
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
-    // await page.setViewport({ width: 1000, height: 926 });
-    await page.goto("https://www.google.com/search?&q=what+is+the+weather",{waitUntil: 'networkidle2'});
-    /** @type {string[]} */
-    var items = await page.evaluate(()=>{
-        return document.getElementById("wob_tm")
-    })
 
-    console.log(productNames)
-    browser.close()
-} 
+    await page.goto('https://www.onepeloton.com/', { waitUntil: 'domcontentloaded' });
+    await page.exposeFunction('urlExists', urlExists);
 
-function test() {
-    document.getElementById('weather').innerHTML = "test";
-    document.getElementById('quote').innerHTML = "Lorem ipsum idk";
+    const img = await page.evaluate(async () => {
+        const ogImg = document.querySelector('meta[property="og:image"]');
+        if (ogImg != null && ogImg.content.length > 0) {
+            const isExists = await urlExists(ogImg.content);
+            return isExists;
+        }
+    });
+    console.log(img);
+
+    await browser.close()
 }
 
-function changeBackground() {
-    const { dialog } = require('electron');
-    console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
-}
-
-// getWeather()
+getWeather();
 
 var time = new Date().getHours();
 
@@ -51,4 +46,4 @@ const userAction = async() => {
 
 userAction();
 
-test();
+// test();
