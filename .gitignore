@@ -1,4 +1,4 @@
 node_modules
 test
 src/python/data.p
-DesktopWeather-win32-x64
+dist

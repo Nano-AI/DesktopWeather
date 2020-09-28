@@ -1,6 +1,5 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from urllib.parse import quote
 import pickle
 import os
 import sys

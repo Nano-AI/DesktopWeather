@@ -1,8 +1,6 @@
 const spawn = require("child_process").spawn;
 const Quote = require('inspirational-quotes');
-const fs = require('fs');
-
-var pythonProcess = spawn('python', ['GetWeather.py']); 
+const fs = require('fs'); 
 
 function setup_welcome() {
     var time = new Date().getHours();
@@ -15,18 +13,23 @@ function setup_welcome() {
     }
 }
 
-pythonProcess.stdout.on('data', (data) => {
-    var output = new TextDecoder().decode(data).split("\n");
-    document.getElementById("weather").innerHTML = `
-        <img src="${output[4]}" style='vertical-align:middle;' />
-        <div style='vertical-align:middle; display:inline;'>
-            ${output[0]}&#730;F
-        </div>
-        <br>
-        <p style="font-size: 1.5rem">${output[1]}</p>
-    `;
-});
+function WeatherUpdate() {
+    var pythonProcess = spawn('python', ['GetWeather.py']);
 
+    pythonProcess.stdout.on('data', (data) => {
+        var output = new TextDecoder().decode(data).split("\n");
+        document.getElementById("weather").innerHTML = `
+            <img src="${output[4]}" style='vertical-align:middle;' />
+            <div style='vertical-align:middle; display:inline;'>
+                ${output[0]}&#730;F
+            </div>
+            <br>
+            <p style="font-size: 1.5rem">${output[1]}</p>
+        `;
+    });
+}
+
+WeatherUpdate();
 setup_welcome();
 
 var img_count = 0;
@@ -45,17 +48,16 @@ function ChangeBackground() {
 }
 
 window.setInterval(() => {
-    var pythonProcess = spawn('python', ['GetWeather.py']);
-        
-    pythonProcess.stdout.on('data', (data) => {
-        var output = new TextDecoder().decode(data);
-        console.log(output);
-    });
+    WeatherUpdate()
 }, config['weather-interval'] * 1000);
 
 window.setInterval(() => {
     ChangeBackground();
 }, config['image-interval'] * 1000);
+
+window.setInterval(() => {
+    setup_welcome();
+});
 
 window.setInterval(() => {
     const divider = ':';

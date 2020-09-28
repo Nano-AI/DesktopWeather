@@ -4,17 +4,23 @@
   "description": "A desktop weather program",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "dev": "nodemon --exec npm run start"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "author": "Nano-AI",
   "license": "ISC",
   "devDependencies": {
     "electron": "^10.1.1",
-    "electron-packager": "^15.1.0"
+    "electron-builder": "^22.8.1"
   },
   "dependencies": {
     "inspirational-quotes": "^1.0.8"
+  },
+  "build": {
+    "appId": "com.nanoai.desktopweather",
+    "win": {
+      "target": "nsis"
+    }
   }
 }
