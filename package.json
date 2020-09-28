@@ -15,7 +15,6 @@
     "nodemon": "^2.0.4"
   },
   "dependencies": {
-    "phantom": "^6.3.0",
-    "puppeteer": "^5.2.1"
+    "inspirational-quotes": "^1.0.8"
   }
 }

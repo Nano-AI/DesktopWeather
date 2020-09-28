@@ -9,6 +9,8 @@ function createWindow() {
 
     win.loadFile('./index.html')
     win.setFullScreen(true);
+    win.setMenu(null);
+    // win.setTitle("Desktop Weahter");
 }
 
 app.whenReady().then(createWindow)

@@ -5,8 +5,8 @@ body {
     color: black;
 }
 
-.background {
-    background: url("./src/img/Beach.jpg") no-repeat center center fixed; 
+#background {
+    background: url("") no-repeat center center fixed; 
     background-size: cover
 }
 
@@ -40,12 +40,16 @@ h2 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     margin-right: 0.5rem;
+    margin-top: 26.8px;
+    margin-right: 16px;
+    font-weight: normal;
 }
 
 .right {
     position: absolute;
     top: 0;
     right: 0;
+    text-align: right;
 }
 
 #change-background {
