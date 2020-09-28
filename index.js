@@ -7,7 +7,7 @@ function createWindow() {
         }
     })
 
-    win.loadFile('./app/html/index.html')
+    win.loadFile('./index.html')
     win.setFullScreen(true);
     win.setMenu(null);
 }
