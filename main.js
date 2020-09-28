@@ -1,7 +1,7 @@
-const spawn = require("child_process").spawn;
 const Quote = require('inspirational-quotes');
 const fs = require('fs'); 
 const path = require('path');
+const puppeteer = require('puppeteer');
 
 const css_dir = path.join(__dirname, './styles.css');
 
@@ -27,7 +27,6 @@ function setup_welcome() {
 }
 
 function WeatherUpdate() {
-    const puppeteer = require('puppeteer');
     puppeteer
         .launch()
         .then(browser => (_browser = browser))
