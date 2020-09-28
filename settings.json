@@ -1,4 +1,4 @@
 {
-    "image-interval": 200,
-    "weather-interval": 600
+    "image-interval": 600,
+    "weather-interval": 1800
 }

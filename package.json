@@ -15,12 +15,15 @@
     "electron-builder": "^22.8.1"
   },
   "dependencies": {
-    "inspirational-quotes": "^1.0.8"
+    "inspirational-quotes": "^1.0.8",
+    "nightmare": "^3.0.2",
+    "puppeteer": "^5.3.1"
   },
   "build": {
     "appId": "com.nanoai.desktopweather",
     "win": {
       "target": "nsis"
-    }
+    },
+    "productName": "Desktop Weather"
   }
 }

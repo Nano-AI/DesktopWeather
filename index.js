@@ -1,15 +1,17 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 function createWindow() {
     const win = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true
-        }
+        },
+        icon: path.join(__dirname + '/icon.png')
     })
 
     win.loadFile('./index.html')
     win.setFullScreen(true);
-    win.setMenu(null);
+    // win.setMenu(null);
 }
 
 app.whenReady().then(createWindow);

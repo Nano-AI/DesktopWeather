@@ -3,15 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <title>Desktop Weather</title>
-	  <link rel="stylesheet" href="../css/styles.css">
+	  <!-- <link rel="stylesheet" href="./styles.css"> -->
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <base href="./">
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" /> -->
   </head>
   <body id="background">
 	<h1 id="good-x"></h1>
 	<h2 id="time"></h2>
   <p id="quote" style="font-size: large;"></p>
   <h2 id="weather" class="right"></h2>
+
+  <script>
+    require('./main.js');
+  </script>
   <!--<button id="change-background" onclick="changeBackground()"></button>-->
 	<!-- <script type="text/javascript" src="./main.js"></script> -->
   </body>
